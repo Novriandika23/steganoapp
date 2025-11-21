@@ -1,66 +1,88 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Navbar from '@/components/Navbar';
+import Link from 'next/link';
+import HowItWorks from '@/components/HowItWorks';
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main style={{ minHeight: '100vh', position: 'relative', overflow: 'hidden' }}>
+      {/* Background Glow Effects */}
+      <div style={{
+        position: 'absolute',
+        top: '-20%',
+        left: '20%',
+        width: '500px',
+        height: '500px',
+        background: 'var(--primary)',
+        filter: 'blur(150px)',
+        opacity: 0.15,
+        borderRadius: '50%',
+        zIndex: -1
+      }} />
+      <div style={{
+        position: 'absolute',
+        bottom: '-10%',
+        right: '10%',
+        width: '600px',
+        height: '600px',
+        background: 'var(--secondary)',
+        filter: 'blur(180px)',
+        opacity: 0.15,
+        borderRadius: '50%',
+        zIndex: -1
+      }} />
+
+      <Navbar />
+      
+      <div className="container" style={{ 
+        textAlign: 'center', 
+        paddingTop: '12rem',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center'
+      }}>
+        <div style={{ 
+          marginBottom: '1.5rem', 
+          padding: '0.5rem 1rem', 
+          background: 'rgba(255,255,255,0.05)', 
+          borderRadius: '50px', 
+          border: '1px solid rgba(255,255,255,0.1)',
+          fontSize: '0.875rem',
+          color: 'var(--primary)'
+        }}>
+          ✨ Client-Side Secure Encryption
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        
+        <h1 className="text-gradient" style={{ 
+          fontSize: 'clamp(3rem, 8vw, 5rem)', 
+          lineHeight: 1.1, 
+          marginBottom: '1.5rem',
+          fontWeight: 800,
+          letterSpacing: '-0.03em'
+        }}>
+          Hide Secrets in<br />Plain Sight
+        </h1>
+        
+        <p style={{ 
+          color: 'var(--text-secondary)', 
+          fontSize: '1.25rem', 
+          marginBottom: '3rem', 
+          maxWidth: '600px', 
+          lineHeight: 1.6 
+        }}>
+          Protect your sensitive data by embedding it within images using advanced LSB steganography. No data ever leaves your browser.
+        </p>
+        
+        <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+          <Link href="/encode" className="btn btn-primary" style={{ minWidth: '160px' }}>
+            Start Encoding
+          </Link>
+          <Link href="/decode" className="btn btn-secondary" style={{ minWidth: '160px' }}>
+            Decode Image
+          </Link>
         </div>
-      </main>
-    </div>
+      </div>
+
+      <HowItWorks />
+    </main>
   );
 }
