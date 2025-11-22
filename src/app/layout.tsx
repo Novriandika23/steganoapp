@@ -15,6 +15,9 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "SteganoSafe",
   description: "Secure Client-Side Image Steganography",
+  icons: {
+    icon: "/icon.png",
+  },
 };
 
 export default function RootLayout({
