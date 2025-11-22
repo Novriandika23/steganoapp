@@ -200,7 +200,7 @@ function ProcessFlow({
                 fontSize: '1.5rem',
                 color: color,
                 opacity: 0.5,
-                display: 'none'
+
               }}
               className="desktop-arrow">
                 →
@@ -210,13 +210,7 @@ function ProcessFlow({
         ))}
       </div>
 
-      <style jsx>{`
-        @media (min-width: 900px) {
-          .desktop-arrow {
-            display: block !important;
-          }
-        }
-      `}</style>
+
     </div>
   );
 }

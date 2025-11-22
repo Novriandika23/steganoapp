@@ -102,3 +102,13 @@ h6 {
   border-color: var(--text-primary);
   background: rgba(255, 255, 255, 0.05);
 }
+
+.desktop-arrow {
+  display: none;
+}
+
+@media (min-width: 900px) {
+  .desktop-arrow {
+    display: block !important;
+  }
+}
